@@ -45,12 +45,16 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/../modules/src/LED.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../bsp/src/bsp_pwm.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../bsp/src/bsp.cpp
+
     # Add user sources here
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/../modules/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../bsp/include
     # Add user defined include paths
 )
 

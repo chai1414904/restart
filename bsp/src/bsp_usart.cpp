@@ -1,9 +1,9 @@
 #include "bsp_usart.hpp"
+#include "usart.h" 
 
-extern UART_HandleTypeDef huart1;
-extern UART_HandleTypeDef huart6;
 //extern了什么
-//可以用#include "usart.h" 取代
+//可以用取代extern UART_HandleTypeDef huart1;extern UART_HandleTypeDef huart6;
+//因为"usart.h"中定义过一次了
 
 /// 阻塞发送的超时时间：留出余量即可，不能用 HAL_MAX_DELAY，否则串口异常时会永久卡死
 #define USART_BLOCK_TIMEOUT_MS 100U

@@ -20,6 +20,7 @@
 #include "main.h"
 #include "can.h"
 #include "dma.h"
+#include "i2c.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
@@ -98,6 +99,8 @@ int main(void)
   MX_CAN1_Init();
   MX_CAN2_Init();
   MX_SPI1_Init();
+  MX_I2C3_Init();
+  MX_TIM10_Init();
   /* USER CODE BEGIN 2 */
    bsp_Init();
   /* USER CODE END 2 */

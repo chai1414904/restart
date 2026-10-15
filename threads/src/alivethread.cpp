@@ -165,9 +165,7 @@ UINT Threads_CreateAll(void)
     DJIMotorHandler_Init();  
     Threads::CreateAliveThread();//先建好信号量
     Threads::CreateImuThread();//再开启线程
-    // Threads::CreateControlThread();
-        /* TODO(D 系列): modules 做完后补上——
-       Threads::CreateControlThread();   需要 M2006 */
+    Threads::CreateControlThread();
 
     return TX_SUCCESS;
 

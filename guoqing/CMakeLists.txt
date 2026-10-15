@@ -49,6 +49,11 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/../bsp/src/bsp_usart.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../bsp/src/bsp.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../bsp/src/bsp_can.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../libs/src/pid.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../libs/src/crc.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../libs/src/math.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../threads/src/alivethread.cpp
+
 
     # Add user sources here
 )
@@ -57,6 +62,8 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/../modules/include
     ${CMAKE_CURRENT_SOURCE_DIR}/../bsp/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../libs/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../threads/include
     # Add user defined include paths
 )
 

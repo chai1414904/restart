@@ -162,10 +162,9 @@ UINT Threads_CreateAll(void)
     }
 
     Threads::CreateAliveThread();//先建好信号量
-    // Threads::CreateImuThread();//再开启线程
+    Threads::CreateImuThread();//再开启线程
     // Threads::CreateControlThread();
         /* TODO(D 系列): modules 做完后补上——
-       Threads::CreateImuThread();       需要 BMI088
        Threads::CreateControlThread();   需要 M2006 */
 
     return TX_SUCCESS;

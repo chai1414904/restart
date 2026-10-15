@@ -90,8 +90,8 @@ void CreateImuThread(void);
 void CreateControlThread(void);
 
 void AliveThreadEntry(ULONG input);
-// void ImuThreadEntry(ULONG input);
-// void ControlThreadEntry(ULONG input);
+void ImuThreadEntry(ULONG input);
+void ControlThreadEntry(ULONG input);
 
 /**
  * @brief 取 IMU 最新一帧的副本

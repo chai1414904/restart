@@ -44,15 +44,20 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/../modules/src/LED.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../bsp/src/bsp.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../bsp/src/bsp_pwm.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../bsp/src/bsp_usart.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../bsp/src/bsp.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../bsp/src/bsp_can.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../libs/src/pid.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../libs/src/crc.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/../libs/src/math.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/../threads/src/alivethread.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../modules/src/BMI088.cpp    
+    ${CMAKE_CURRENT_SOURCE_DIR}/../modules/src/M2006.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../modules/src/DJIMotorHandler.cpp   
+    ${CMAKE_CURRENT_SOURCE_DIR}/../modules/src/LED.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/../threads/src/alivethread.cpp    
+    ${CMAKE_CURRENT_SOURCE_DIR}/../threads/src/imuthread.cpp
+
 
 
     # Add user sources here

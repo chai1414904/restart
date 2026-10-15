@@ -1,6 +1,7 @@
 #include "threads.hpp"
 
 #include "LED.hpp"
+#include "DJIMotorHandler.hpp"  
 
 namespace Threads
 {
@@ -161,6 +162,7 @@ UINT Threads_CreateAll(void)
         return status;
     }
 
+    DJIMotorHandler_Init();  
     Threads::CreateAliveThread();//先建好信号量
     Threads::CreateImuThread();//再开启线程
     // Threads::CreateControlThread();

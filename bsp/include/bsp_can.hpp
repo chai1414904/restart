@@ -3,6 +3,7 @@
 
 #include "main.h"
 #include "can.h"
+#include <stdint.h>
 
 /**
  * @brief 初始化CAN滤波器配置。
@@ -21,4 +22,10 @@ void CAN_Init(void);
  */
 void CAN_Transmit(CAN_HandleTypeDef *hcan, uint32_t Id, uint8_t *msg, uint16_t len);
 
-#endif
+/** 收到一帧标准帧时的回调；在【中断上下文】里被调用 */
+typedef void (*CAN_RxCallback_t)(CAN_HandleTypeDef *hcan, uint32_t stdId, uint8_t *data);
+
+/** 注册接收回调（传 nullptr 取消注册） */
+void CAN_SetRxCallback(CAN_RxCallback_t cb);
+
+#endif // BSP_CAN_HPP

@@ -1,6 +1,9 @@
 #include "bsp_can.hpp"
 #include "can.h"
 
+namespace {
+    CAN_RxCallback_t s_rxCallback = nullptr;          // 文件内静态 ✓
+}
 /**
  * @brief 初始化CAN滤波器配置。
  * 设置CAN硬件的滤波器，用于优化接收数据的处理。
@@ -57,6 +60,11 @@ void CAN_Transmit(CAN_HandleTypeDef *hcan, uint32_t Id, uint8_t *msg, uint16_t l
     (void)HAL_CAN_AddTxMessage(hcan, &txHeader, msg, &txMailbox);//数据输入自动发出
 }
 
+void CAN_SetRxCallback(CAN_RxCallback_t cb)
+{
+    s_rxCallback = cb;
+}
+
 // 实现 CAN 接收回调，根据总线和标准帧 ID 分发电机反馈。
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
@@ -73,6 +81,9 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
     {
         return;
     }
-    //DJIMotorHandler::Instance()->updateFeedback(hcan, rxData, (int)(rxHeader.StdId - 0x201U));
+     if (s_rxCallback != nullptr)
+    {
+        s_rxCallback(hcan, rxHeader.StdId, rxData);   // ★ 只转发，不解析 ✓
+    }
     //BSP层只管收数据，不管数据怎么解析，解析交给专门的业务层（）
 }

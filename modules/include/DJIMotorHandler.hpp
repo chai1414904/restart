@@ -57,5 +57,6 @@ public:
         return &instance;
     }
 };
+void DJIMotorHandler_Init(void);
 
 #endif // DJIMOTORHANDLER_HPP
